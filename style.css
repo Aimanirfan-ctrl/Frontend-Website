@@ -388,3 +388,100 @@ body.light-mode .heading{
     color: #007d10;
 }
 }
+/* ==========================
+   Tablet (992px)
+========================== */
+
+@media (max-width:992px){
+
+nav{
+    padding:20px 5%;
+}
+
+.hero-banner{
+    padding:40px 5%;
+}
+
+.products-container,
+.products-container1{
+    padding:30px 5%;
+}
+
+.modal-content{
+    width:90%;
+}
+
+}
+@media (max-width:768px){
+
+nav{
+    flex-direction:column;
+    gap:20px;
+}
+
+nav ul{
+    gap:18px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero-banner{
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+    padding:50px 20px;
+}
+
+.hero-text h1{
+    font-size:38px;
+    letter-spacing:12px;
+    line-height:55px;
+}
+
+.green-text{
+    font-size:38px;
+}
+
+.hero-text p{
+    font-size:16px;
+    line-height:35px;
+}
+
+.feature-bar{
+    flex-direction:column;
+    gap:25px;
+    margin:20px;
+}
+
+.feature-divider{
+    display:none;
+}
+
+.products-container,
+.products-container1{
+    padding:20px;
+}
+
+.card,
+.card1{
+    width:100%;
+    max-width:340px;
+}
+
+.modal-content{
+    width:95%;
+    padding:20px;
+}
+
+.modal-body{
+    flex-direction:column;
+    text-align:center;
+}
+
+.footer-container{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+}
+
+}
