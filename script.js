@@ -27,10 +27,12 @@ buyBtn.addEventListener('click', () => {
     alert("Product added to cart! 🛒");
 });
 const themebtn = document.getElementById("light-btn");
-themebtn.addEventListener('click',()=>{
+   themeBtn.addEventListener("click",()=>{
     document.body.classList.toggle("light-mode");
-    if(document.body.classlist.contains("light-mode){
-        themebtn.innertext="☀️";}
-        else{
-       themeBtn.innerText="🌙";}
+    if(document.body.classList.contains("light-mode")){
+        themeBtn.innerText="☀️";
+    }
+    else{
+        themeBtn.innerText="🌙";
+    }
 });
