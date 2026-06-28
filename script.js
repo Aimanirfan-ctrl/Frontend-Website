@@ -1,101 +1,85 @@
 let cart = [];
 let selectedProduct = {};
-const modal = document.getElementById('productModal');
-const closeModalBtn = document.getElementById('closeModalBtn');
-const badge = document.getElementById('cartCount');
-const buyBtn = document.querySelector('.buy-btn');
-
-let count = 0;
-const cards = document.querySelectorAll('.card, .card1');
+const modal = document.getElementById("productModal");
+const closeModalBtn = document.getElementById("closeModalBtn");
+const badge = document.getElementById("cartCount");
+const buyBtn = document.querySelector(".buy-btn");
+const themebtn = document.getElementById("light-btn");
+const cards = document.querySelectorAll(".card, .card1");
 cards.forEach(card => {
-    card.addEventListener('click', () => {
-
-        const productName = card.querySelector('h2').innerText;
-        const productPrice = card.querySelector('p').innerText;
-        const productImgSrc = card.querySelector('img').src;
-
-        document.getElementById('modalTitle').innerText = productName;
-        document.getElementById('modalPrice').innerText = productPrice;
-        document.getElementById('modalImg').src = productImgSrc;
-
+    card.addEventListener("click",()=>{
+        const productName = card.querySelector("h2").innerText;
+        const productPrice = card.querySelector("p").innerText;
+        const productImg = card.querySelector("img").src;
+        document.getElementById("modalTitle").innerText = productName;
+        document.getElementById("modalPrice").innerText = productPrice;
+        document.getElementById("modalImg").src = productImg;
         selectedProduct = {
-            name: productName,
+          name: productName,
             price: productPrice,
-            image: productImgSrc
+            image: productImg
         };
 
-        modal.classList.add('active');
+        modal.classList.add("active");
     });
 });
-closeModalBtn.addEventListener('click', () => {
-    modal.classList.remove('active');
-});
-buyBtn.addEventListener("click", () => {
-
-    cart.push(selectedProduct);
-
-    badge.innerText = cart.length;
-
-    showCart();
+closeModalBtn.addEventListener("click",()=>{
 
     modal.classList.remove("active");
 
 });
-const themebtn = document.getElementById("light-btn");
-   themebtn.addEventListener("click",()=>{
-    document.body.classList.toggle("light-mode");
-    if(document.body.classList.contains("light-mode")){
-        themeBtn.innerText="☀️";
-    }
-    else{
-        themeBtn.innerText="🌙";
-    }
-});
-const cartPanel = document.getElementById("cartPanel");
-const cartItems = document.getElementById("cartItems");
-const total = document.getElementById("total");
-const closeCart = document.getElementById("closeCart");
-function showCart(){
-
-    cartItems.innerHTML = "";
-
-    let sum = 0;
-
-    cart.forEach((item,index)=>{
-
-        sum += parseFloat(item.price.replace("$",""));
-
-        cartItems.innerHTML += `
-        <div class="cart-item">
-            <img src="${item.image}" width="70">
-            <div>
-                <h4>${item.name}</h4>
-                <p>${item.price}</p>
-            </div>
-            <button onclick="removeCart(${index})">❌</button>
-        </div>
-        `;
-
-    });
-
-    total.innerText = "$" + sum.toFixed(2);
-
-}
-
-function removeCart(index){
-
-    cart.splice(index,1);
-
+buyBtn.addEventListener("click",()=>{
+    cart.push(selectedProduct);
     badge.innerText = cart.length;
+    alert(selectedProduct.name + " Added To Cart 🛒");
+    modal.classList.remove("active");
 
-    showCart();
+});
 
-}
+document.querySelector(".cart-icon-container").addEventListener("click",()=>{
 
-document.querySelector(".cart-icon-container").onclick = () => {
-    cartPanel.classList.add("active");
-}
+    if(cart.length==0){
 
-closeCart.onclick = () => {
-    cartPanel.classList.remove("active");
+        alert("🛒 Cart is Empty!");
+
+    }else{
+
+        let message="🛒 YOUR CART\n\n";
+
+        let total=0;
+
+        cart.forEach((item,index)=>{
+
+            message += (index+1)+". "+item.name+" - "+item.price+"\n";
+
+            total += parseFloat(item.price.replace("$",""));
+
+        });
+
+        message += "\n-----------------\n";
+        message += "Total = $" + total.toFixed(2);
+
+        alert(message);
+
+    }
+
+});
+if(themebtn){
+
+themebtn.addEventListener("click",()=>{
+
+    document.body.classList.toggle("light-mode");
+
+    if(document.body.classList.contains("light-mode")){
+
+        themebtn.innerText="☀️";
+
+    }else{
+
+        themebtn.innerText="🌙";
+
+    }
+
+});
+
 }
