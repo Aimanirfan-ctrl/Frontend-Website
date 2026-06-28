@@ -368,7 +368,8 @@ footer {
     display: flex;
     justify-content: space-between;
 }
-
+#light-btn{
+    font-size:19px;
 body.light-mode{
     background:#f5f5f5;
     color:#000;
