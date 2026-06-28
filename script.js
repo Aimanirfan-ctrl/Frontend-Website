@@ -29,4 +29,8 @@ buyBtn.addEventListener('click', () => {
 const themebtn = document.getElementById("light-btn");
 themebtn.addEventListener('click',()=>{
     document.body.classList.toggle("light-mode");
+    if(document.body.classlist.contains("light-mode){
+        themebtn.innertext="☀️";}
+        else{
+       themeBtn.innerText="🌙";}
 });
