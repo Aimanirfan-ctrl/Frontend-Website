@@ -527,3 +527,55 @@ nav ul{
 }
 
 }
+.cart-panel{
+    position:fixed;
+    top:0;
+    right:-400px;
+    width:350px;
+    height:100%;
+    background:#111;
+    color:white;
+    padding:20px;
+    transition:.4s;
+    z-index:9999;
+    overflow-y:auto;
+}
+
+.cart-panel.active{
+    right:0;
+}
+
+.cart-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+#closeCart{
+    font-size:25px;
+    cursor:pointer;
+}
+
+.cart-item{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    margin-bottom:15px;
+    border-bottom:1px solid gray;
+    padding-bottom:10px;
+}
+
+.cart-item img{
+    width:70px;
+}
+
+.cart-item button{
+    margin-left:auto;
+    cursor:pointer;
+    background:red;
+    color:white;
+    border:none;
+    padding:5px 10px;
+    border-radius:5px;
+}
